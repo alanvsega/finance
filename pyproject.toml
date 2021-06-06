@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "finance"
+version = "0.1.0"
+description = ""
+authors = ["Vitor Anjos <github@vitor.cx>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pynubank = "^2.12.1"
+gspread = "^3.7.0"
+click = "^8.0.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
