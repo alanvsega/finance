@@ -25,14 +25,21 @@ To run the script:
   poetry run python finance/main.py
   ```
 
-You must define the following environment variables:
+You must define the following environment variables to run the app:
 
 ```yaml
-GOOGLE_SPREADSHEET_KEY: 'CHANGEME'
+# Spreadsheet KEY (living in a Google Drive folder) that it's going to contain all the transactions
+GOOGLE_SPREADSHEET_KEY: 'CHANGEME' 
+
+# Nubank credentials
 NUBANK_CPF: 'CHANGEME'
 NUBANK_PASSWORD: 'CHANGEME'
+
+# GCP project containing the bucket used for this script (deployed as Cloud Function) 
 GCP_BUCKET_PROJECT: 'CHANGEME'
-GCP_BUCKET_NAME: 'CHANGEME'
+
+# Bucket containing the required credentials from the bank accounts to authenticate (e.g certificates)
+GCP_BUCKET_NAME: 'CHANGEME' 
 ```
 
 You can run the project with Docker too:
