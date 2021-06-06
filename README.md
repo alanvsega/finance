@@ -1,6 +1,6 @@
 # finance
 
-This app syncs your transactions from your banks accounts into a Google Spreadsheet inside a Google Drive.
+This app syncs your transactions from your bank accounts into a Google Spreadsheet inside a Google Drive.
 
 Currently only Nubank is synced.
 
