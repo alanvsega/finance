@@ -1,5 +1,5 @@
+from datetime import datetime
 import gspread
-import os
 import google.auth
 
 
@@ -47,7 +47,7 @@ class GSpreadHandler:
 
         next_index = len(past_transactions) + 2
 
-        range_to_update = f'A{next_index}:F{len(transactions) + 2}'
+        range_to_update = f'A{next_index}:F{next_index + len(transactions) + 2}'
 
         parsed_transactions = []
         for transaction in transactions:
@@ -63,3 +63,14 @@ class GSpreadHandler:
         self.worksheet.update(range_to_update, parsed_transactions)
 
         print('Added set of transactions')
+
+    def update_balance_overview(self, new_balance, bank_account):
+        overview_worksheet = self.spreadsheet.worksheet("Overview").get('A1:F')
+
+        for line in overview_worksheet:
+            if line[2] == bank_account:
+                line[1] = float(new_balance)
+                line[5] = datetime.today().strftime("%Y-%m-%dT%H:%M")
+                break
+
+        self.spreadsheet.worksheet("Overview").update("A1:F", overview_worksheet, raw=False)
