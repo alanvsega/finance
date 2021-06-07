@@ -60,7 +60,7 @@ class GSpreadHandler:
                 transaction["synced_at"]
             ])
 
-        self.worksheet.update(range_to_update, parsed_transactions)
+        self.worksheet.update(range_to_update, parsed_transactions, raw=False)
 
         print('Added set of transactions')
 
